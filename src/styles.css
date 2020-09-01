@@ -1,7 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
-body {
-    margin: 1px 0 0 0;
-}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   
 body::after {
     content: "";
@@ -16,4 +15,3 @@ body::after {
     position: absolute;
     z-index: -1;   
 }
-  
