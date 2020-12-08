@@ -1,6 +1,6 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { CharactersApiService } from '../characters-api.service';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-list',
@@ -8,16 +8,20 @@ import { Observable } from 'rxjs';
   styleUrls: ['./list.component.css']
 })
 export class ListComponent implements OnInit {
+  ret;
+  list: any = [];
 
-  constructor(private characterSvc: CharactersApiService) { }
-  allCharacters: Observable<any>;
+  constructor(private character: CharactersApiService, private router: Router) { }
 
-  ngOnInit(): void {
-    this.getCharacters();
+  ngOnInit() {
+    this.character.getCaracters().subscribe(characters => {
+      this.ret = characters
+      this.list = this.ret.data.results
+      console.log(this.list);      
+    })
   }
 
-  getCharacters(){
-    this.allCharacters = this.characterSvc.getAllCharacters();
+  onDescription(caracter) {
+    this.router.navigate(['/lista', caracter.id]);
   }
-
 }

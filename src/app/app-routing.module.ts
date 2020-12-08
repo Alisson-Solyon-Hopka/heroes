@@ -20,7 +20,7 @@ const routes: Routes = [
     component: ListComponent
   },
   {
-    path: 'descricao',
+    path: 'lista/:id',
     component: DescricaoComponent
   }
 ];
