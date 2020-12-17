@@ -8,14 +8,14 @@ import { Observable } from 'rxjs';
 })
 export class CharactersApiService {
 
-  constructor(private http: HttpClient){}
+  constructor(private https: HttpClient){}
 
   getCaracters(): Observable <CharactersApiService[]> {
-    return this.http.get<CharactersApiService[]>(`${environment.marvel_api.url_base}characters?ts=1&apikey=${environment.marvel_api.public_key}&hash=${environment.marvel_api.hash}&limit=100`);
+    return this.https.get<CharactersApiService[]>(`${environment.marvel_api.url_base}characters?ts=1&apikey=${environment.marvel_api.public_key}&hash=${environment.marvel_api.hash}&limit=100`);
   }
 
   getCaracter(id): Observable <CharactersApiService[]> {
-    return this.http.get<CharactersApiService[]>(`${environment.marvel_api.url_base}characters/${id}?ts=1&apikey=${environment.marvel_api.public_key}&hash=${environment.marvel_api.hash}&limit=100`);
+    return this.https.get<CharactersApiService[]>(`${environment.marvel_api.url_base}characters/${id}?ts=1&apikey=${environment.marvel_api.public_key}&hash=${environment.marvel_api.hash}&limit=100`);
   }
 
 }
